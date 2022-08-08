@@ -1,0 +1,11 @@
+version: '3'
+services:
+  php:
+    build: docker/php/
+    container_name: boliev_billie_tz_php
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    command: /bin/sh -c "composer install --no-dev && symfony server:stop && symfony server:start"
